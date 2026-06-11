@@ -4,27 +4,6 @@ import pandas as pd
 #这是我们根据词频做的AHP矩阵计算代码
 
 # ==================== 1. 词频数据（基于 PDF 解析结果）====================
-# 中文词频 TOP 30
-chinese_freq = {
-    "低空": 3507, "经济": 1829, "发展": 1213, "无人机": 1136, "空域": 984,
-    "技术": 788, "系统": 650, "飞行": 598, "安全": 568, "城市": 542,
-    "空间": 540, "规划": 501, "应用": 497, "运行": 480, "场景": 475,
-    "设计": 459, "产业": 454, "航空器": 446, "优化": 441, "风险": 439,
-    "管理": 431, "资源": 417, "实现": 410, "协同": 380, "飞行器": 372,
-    "环境": 372, "活动": 343, "算法": 342, "政策": 339, "领域": 336
-}
-
-# 英文词频 TOP 30（过滤无效学术词如 al, et, cid, https, doi, crossref 等）
-english_freq_raw = {
-    "al": 1803, "et": 1797, "uam": 1630, "air": 1354, "urban": 1299,
-    "aircraft": 1230, "cid": 1139, "evtol": 929, "research": 900, "https": 899,
-    "mobility": 872, "crossref": 840, "operations": 833, "systems": 821, "low-altitude": 780,
-    "flight": 761, "safety": 746, "doi": 720, "system": 708, "aviation": 680,
-    "transportation": 636, "infrastructure": 622, "development": 621, "china": 616,
-    "design": 594, "data": 588, "uav": 583, "technology": 568, "analysis": 539,
-    "vertiport": 532
-}
-
 # 需要过滤的无意义词
 stop_english = {"al", "et", "cid", "https", "crossref", "doi", "china"}  # china 作为地理词可忽略
 english_freq = {k: v for k, v in english_freq_raw.items() if k not in stop_english}
